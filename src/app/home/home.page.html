@@ -1,0 +1,37 @@
+<app-input-form (formSubmit)="onFormSubmit($event)"></app-input-form>
+
+<ion-card *ngIf="randomNumbers.length > 0">
+  <ion-card-header>
+    <ion-card-title>Згенеровані випадкові числа</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p>{{ randomNumbers.join(', ') }}</p>
+  </ion-card-content>
+</ion-card>
+
+<ion-card *ngIf="sequence.length > 0">
+  <ion-card-header>
+    <ion-card-title>Результати</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <table style="width: 100%; border-collapse: collapse; text-align: center;">
+      <thead>
+        <tr>
+          <th style="border: 1px solid #ccc; padding: 8px;">№</th>
+          <th style="border: 1px solid #ccc; padding: 8px;">Число</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let num of sequence; index as i">
+          <td style="border: 1px solid #ccc; padding: 8px;">{{ i + 1 }}</td>
+          <td style="border: 1px solid #ccc; padding: 8px;">{{ num }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="margin-top: 16px;">
+      <p><strong>Сума:</strong> {{ sum }}</p>
+      <p><strong>Добуток:</strong> {{ product }}</p>
+      <p><strong>Середнє арифметичне:</strong> {{ average }}</p>
+    </div>
+  </ion-card-content>
+</ion-card>
